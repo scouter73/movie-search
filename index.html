@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Search Database</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Search Database</h1>
+    <input type="text" id="searchInput" placeholder="Enter movie title...">
+    <button onclick="searchMovie()">Search</button>
+    <div id="result"></div>
+
+    <script src="main.js"></script>
+    <script>
+        function searchMovie() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            const movie = movies.find(m => m.title.toLowerCase().includes(searchInput));
+            
+            if (movie) {
+                resultDiv.innerHTML = `<h2>${movie.title} </h2><p>${movie.plot}</p>`;
+            } else {
+                resultDiv.innerHTML = '<p>No matching movies found.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
