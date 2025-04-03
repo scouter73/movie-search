@@ -32,7 +32,7 @@
             const movie = movies.find(m => m.title.toLowerCase().includes(searchInput));
             
             if (movie) {
-                resultDiv.innerHTML = `<h2>${movie.title} </h2><p>${movie.plot}</p>`;
+                resultDiv.innerHTML = `<h2>${movie.title} ${movie.releaseYear}</h2><p>${movie.plot}</p>`;
             } else {
                 resultDiv.innerHTML = '<p>No matching movies found.</p>';
             }
